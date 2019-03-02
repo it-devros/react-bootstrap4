@@ -35,22 +35,24 @@ class DashboardLayout extends React.Component {
     return (
       <div className="dashboard-container">
         <Header {...this.props} />
-        <div className="container-fluid dashboard-content">
-          <Switch>
-            {
-              dashboardRoutes.map((prop, key) => {
-                if (prop.redirect)
-                  return <Redirect from={prop.path} to={prop.pathTo} key={key} />
-                return (
-                  <Route
-                    path={prop.path}
-                    component={prop.component}
-                    key={key}
-                  />
-                )
-              })
-            }
-          </Switch>
+        <div className="dashboard-content">
+          <div className="container-fluid">
+            <Switch>
+              {
+                dashboardRoutes.map((prop, key) => {
+                  if (prop.redirect)
+                    return <Redirect from={prop.path} to={prop.pathTo} key={key} />
+                  return (
+                    <Route
+                      path={prop.path}
+                      component={prop.component}
+                      key={key}
+                    />
+                  )
+                })
+              }
+            </Switch>
+          </div>
         </div>
       </div>
     )

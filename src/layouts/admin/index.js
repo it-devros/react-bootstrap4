@@ -37,22 +37,24 @@ class AdminLayout extends React.Component {
     return (
       <div className="admin-container">
         <Header {...this.props} />
-        <div className="container-fluid admin-content">
-          <Switch>
-            {
-              adminRoutes.map((prop, key) => {
-                if (prop.redirect)
-                  return <Redirect from={prop.path} to={prop.pathTo} key={key} />
-                return (
-                  <Route
-                    path={prop.path}
-                    component={prop.component}
-                    key={key}
-                  />
-                )
-              })
-            }
-          </Switch>
+        <div className="admin-content">
+          <div className="container-fluid">
+            <Switch>
+              {
+                adminRoutes.map((prop, key) => {
+                  if (prop.redirect)
+                    return <Redirect from={prop.path} to={prop.pathTo} key={key} />
+                  return (
+                    <Route
+                      path={prop.path}
+                      component={prop.component}
+                      key={key}
+                    />
+                  )
+                })
+              }
+            </Switch>
+          </div>
         </div>
       </div>
     )

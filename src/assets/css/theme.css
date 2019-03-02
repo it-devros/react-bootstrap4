@@ -8,3 +8,44 @@ body {
   color: #71748d;
   background-color: #efeff6;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: #3d405c;
+  margin: 0px 0px 15px 0px;
+  font-family: 'Circular Std Medium';
+}
+
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #71748d;
+}
+
+th {
+  color: #3d405c;
+  font-family: 'Circular Std Medium';
+  font-weight: normal;
+  vertical-align: middle !important;
+  border-bottom-width: 1px !important;
+}
+
+td {
+  font-weight: normal;
+  vertical-align: middle !important;
+}
+
+tr:hover {
+  background-color: rgba(255,255,255, 1) !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}

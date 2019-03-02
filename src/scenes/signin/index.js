@@ -40,7 +40,7 @@ class SignIn extends React.Component {
   }
 
   handleSubmit() {
-    this.props.history.push('/dashboard')
+    this.props.history.push('/admin')
   }
 
   render() {
