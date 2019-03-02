@@ -8,6 +8,10 @@ import { Router, Route, Switch } from 'react-router-dom'
 import indexRoutes from './routes'
 import configureStore from './services/store'
 
+
+import './assets/css/theme.css'
+
+
 const hist = createBrowserHistory()
 const store = configureStore()
 

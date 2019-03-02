@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
-
 import { bindActionCreators } from 'redux'
 
 
@@ -19,18 +18,18 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   
   constructor(props) {
     super(props)
     this.state = {
       error: '',
       username: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     }
 
     this.handleInput = this.handleInput.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
   
   handleInput(key, value) {
@@ -39,14 +38,10 @@ class SignIn extends React.Component {
     })
   }
 
-  handleSubmit() {
-    this.props.history.push('/dashboard')
-  }
-
   render() {
 
     return (
-      <div className="signin-page">
+      <div className="signup-page">
         <div className="card">
             <div className="card-header text-center">
                 <Link className="navbar-brand" to="/">
@@ -92,13 +87,21 @@ class SignIn extends React.Component {
                   onChange={e => this.handleInput('password', e.target.value)}
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="password">
+                  パスワード
+                </label>
+                <input
+                  type="password"
+                  value={this.state.confirmPassword}
+                  className="form-control form-control-lg"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  onChange={e => this.handleInput('confirmPassword', e.target.value)}
+                />
+              </div>
               
-              <button
-                className="btn btn-primary btn-lg btn-block"
-                onClick={this.handleSubmit}
-              >
-                Log in
-              </button>
+              <button className="btn btn-primary btn-lg btn-block">Register</button>
             </div>
             
         </div>
@@ -107,6 +110,6 @@ class SignIn extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
 
 

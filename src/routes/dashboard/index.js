@@ -1,15 +1,15 @@
-import Dashboard from '../../scenes/dashboard'
+import User from '../../scenes/user'
 
 const dashboardRoutes = [
   {
-    path: '/dashboard/overview',
+    path: '/dashboard/user',
     name: 'overview',
-    component: Dashboard
+    component: User
   },
   {
     redirect: true,
     path: '/dashboard',
-    pathTo: '/dashboard/overview',
+    pathTo: '/dashboard/user',
     name: 'Dashboard'
   }
 ]

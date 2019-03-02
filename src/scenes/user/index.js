@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-class Dashboard extends React.Component {
+class User extends React.Component {
   
   constructor(props) {
     super(props)
@@ -29,12 +29,12 @@ class Dashboard extends React.Component {
   render() {
 
     return (
-      <div className="dashboard-page">
+      <div className="user-page">
       </div>
     )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default connect(mapStateToProps, mapDispatchToProps)(User)
 
 

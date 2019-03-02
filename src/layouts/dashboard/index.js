@@ -1,7 +1,11 @@
 import React from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import { Header } from '../../components'
+
+import dashboardRoutes from '../../routes/dashboard'
 
 import './style.scss'
 
@@ -30,6 +34,24 @@ class DashboardLayout extends React.Component {
 
     return (
       <div className="dashboard-container">
+        <Header {...this.props} />
+        <div className="container-fluid dashboard-content">
+          <Switch>
+            {
+              dashboardRoutes.map((prop, key) => {
+                if (prop.redirect)
+                  return <Redirect from={prop.path} to={prop.pathTo} key={key} />
+                return (
+                  <Route
+                    path={prop.path}
+                    component={prop.component}
+                    key={key}
+                  />
+                )
+              })
+            }
+          </Switch>
+        </div>
       </div>
     )
   }

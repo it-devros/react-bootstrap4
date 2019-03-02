@@ -2,14 +2,14 @@ import Admin from '../../scenes/admin'
 
 const adminRoutes = [
   {
-    path: '/admin/overview',
+    path: '/admin/user',
     name: 'overview',
     component: Admin
   },
   {
     redirect: true,
     path: '/admin',
-    pathTo: '/admin/overview',
+    pathTo: '/admin/user',
     name: 'Admin'
   }
 ]

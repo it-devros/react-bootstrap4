@@ -1,6 +1,12 @@
 import React from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
+
+
+import { Header } from '../../components'
+
+import adminRoutes from '../../routes/admin'
 
 
 import './style.scss'
@@ -30,6 +36,24 @@ class AdminLayout extends React.Component {
 
     return (
       <div className="admin-container">
+        <Header {...this.props} />
+        <div className="container-fluid admin-content">
+          <Switch>
+            {
+              adminRoutes.map((prop, key) => {
+                if (prop.redirect)
+                  return <Redirect from={prop.path} to={prop.pathTo} key={key} />
+                return (
+                  <Route
+                    path={prop.path}
+                    component={prop.component}
+                    key={key}
+                  />
+                )
+              })
+            }
+          </Switch>
+        </div>
       </div>
     )
   }
