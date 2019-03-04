@@ -50,36 +50,36 @@ class Targetlist extends React.Component {
                   <table className="table table-hover table-bordered first">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>対象者コード</th>
+                        <th>No</th>
+                        <th>対象者ID</th>
                         <th>対象者氏名</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>11</td>
-                        <td>target_user</td>
+                        <td>T00200</td>
+                        <td>鈴木　花子</td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>target_user</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>target_user</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>target_user</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>target_user</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                       </tr>
                     </tbody>
                   </table>

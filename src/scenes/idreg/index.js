@@ -23,8 +23,21 @@ class IDreg extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      user_ID: 'U00101',
+      password: 'U00101',
+      username: '山田　太郎',
+      email: 'ymd.t@kaminokawa.co.jp',
+
+      target_ID: 'T00200'
     }
 
+    this.handleInput = this.handleInput.bind(this)
+  }
+
+  handleInput(key, value) {
+    this.setState({
+      [key]: value
+    })
   }
 
   render() {
@@ -52,25 +65,45 @@ class IDreg extends React.Component {
                       <tr>
                         <th>ユーザーID</th>
                         <td>
-                          <input type="text" className="form-control form-control-md" />
+                          <input
+                            type="text"
+                            className="form-control form-control-md"
+                            value={this.state.user_ID}
+                            onChange={e => this.handleInput('user_ID', e.target.value)}
+                          />
                         </td>
                       </tr>
                       <tr>
                         <th>パスワード</th>
                         <td>
-                          <input type="text" className="form-control form-control-md" />
+                          <input
+                            type="password"
+                            className="form-control form-control-md"
+                            value={this.state.password}
+                            onChange={e => this.handleInput('user_ID', e.target.value)}
+                          />
                         </td>
                       </tr>
                       <tr>
                         <th>ユーザー氏名</th>
                         <td>
-                          <input type="text" className="form-control form-control-md" />
+                          <input
+                            type="text"
+                            className="form-control form-control-md"
+                            value={this.state.username}
+                            onChange={e => this.handleInput('username', e.target.value)}
+                          />
                         </td>
                       </tr>
                       <tr>
                         <th>Emailアドレス</th>
                         <td>
-                          <input type="text" className="form-control form-control-md" />
+                          <input
+                            type="text"
+                            className="form-control form-control-md"
+                            value={this.state.email}
+                            onChange={e => this.handleInput('email', e.target.value)}
+                          />
                         </td>
                       </tr>
                     </tbody>
@@ -104,7 +137,12 @@ class IDreg extends React.Component {
                     <tbody>
                       <tr>
                         <td>
-                          <input type="text" className="form-control form-control-sm" />
+                          <input
+                            type="text"
+                            className="form-control form-control-sm"
+                            value={this.state.target_ID}
+                            onChange={e => this.handleInput('target_ID', e.target.value)}
+                          />
                         </td>
                         <td>
                           鈴木　花子
@@ -115,7 +153,7 @@ class IDreg extends React.Component {
                           <input type="text" className="form-control form-control-sm" />
                         </td>
                         <td>
-                          鈴木　花子
+                          
                         </td>
                       </tr>
                       <tr>
@@ -123,7 +161,7 @@ class IDreg extends React.Component {
                           <input type="text" className="form-control form-control-sm" />
                         </td>
                         <td>
-                          鈴木　花子
+                          
                         </td>
                       </tr>
                       <tr>
@@ -131,7 +169,7 @@ class IDreg extends React.Component {
                           <input type="text" className="form-control form-control-sm" />
                         </td>
                         <td>
-                          鈴木　花子
+                          
                         </td>
                       </tr>
                     </tbody>

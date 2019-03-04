@@ -43,7 +43,7 @@ class Target extends React.Component {
     data.push(
       <tr key={'temperature'}>
         <td rowSpan='7'>
-          <Link to="/dashboard/sensor/12"><span>{sensor.name}</span></Link>
+          <span>{sensor.name}</span>
         </td>
         <td>
           温度

@@ -23,8 +23,17 @@ class Targetreg extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      target_ID: 'T00200',
+      target_name: '鈴木　花子'
     }
 
+    this.handleInput = this.handleInput.bind(this)
+  }
+
+  handleInput(key, value) {
+    this.setState({
+      [key]: value
+    })
   }
 
   render() {
@@ -52,13 +61,23 @@ class Targetreg extends React.Component {
                       <tr>
                         <th>対象者コード</th>
                         <td>
-                          <input type="text" className="form-control form-control-md" />
+                          <input
+                            type="text"
+                            className="form-control form-control-md"
+                            value={this.state.target_ID}
+                            onChange={e => this.handleInput('target_ID', e.target.value)}
+                          />
                         </td>
                       </tr>
                       <tr>
                         <th>対象者氏名</th>
                         <td>
-                          <input type="text" className="form-control form-control-md" />
+                          <input
+                            type="text"
+                            className="form-control form-control-md"
+                            value={this.state.target_name}
+                            onChange={e => this.handleInput('target_name', e.target.value)}
+                          />
                         </td>
                       </tr>
                     </tbody>

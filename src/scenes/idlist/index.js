@@ -50,36 +50,26 @@ class IDlist extends React.Component {
                   <table className="table table-hover table-bordered first">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>ユーザーID</th>
-                        <th>ユーザー氏名</th>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>氏名</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
+                        <td>A00001</td>
+                        <td>佐藤　一郎</td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
+                        <td>2</td>
+                        <td>U00101</td>
+                        <td>山田　太郎</td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
+                        <td>3</td>
+                        <td>T00200</td>
+                        <td>鈴木　花子</td>
                       </tr>
                     </tbody>
                   </table>

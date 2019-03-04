@@ -51,11 +51,11 @@ class User extends React.Component {
                     <tbody>
                       <tr>
                         <th>ユーザーID</th>
-                        <td>11</td>
+                        <td>U00101</td>
                       </tr>
                       <tr>
                         <th>ユーザー名</th>
-                        <td>user</td>
+                        <td>山田　太郎</td>
                       </tr>
                     </tbody>
                   </table>
@@ -83,16 +83,16 @@ class User extends React.Component {
                     <tbody>
                       <tr>
                         <td>
-                          <Link to="/dashboard/target/12" target="_self">12</Link>
+                          <Link to="/dashboard/target/12" target="_self">T00200</Link>
                         </td>
                         <td>
-                          <Link to="/dashboard/target/12" target="_self">target_user</Link>
+                          鈴木　花子
                         </td>
                         <td>
-                          <input className="form-control custom-check" type="checkbox" id="12" name="alert" value="1" checked="" />
+                          
                         </td>
                         <td>
-                          Tue Feb 05 2019 06:58:02 GMT+0000 (Coordinated Universal Time)
+                          2019/03/05 11:12:03
                         </td>
                       </tr>
                     </tbody>

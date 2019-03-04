@@ -25,7 +25,7 @@ class SignIn extends React.Component {
     super(props)
     this.state = {
       error: '',
-      username: '',
+      username: 'U00101',
       password: ''
     }
 
@@ -41,9 +41,9 @@ class SignIn extends React.Component {
 
   handleSubmit() {
     const { username, password } = this.state
-    if (username == 'admin' && password == 'admin') {
+    if (username == 'A00001') {
       this.props.history.push('/admin')
-    } else if (username == 'user' && password == 'user') {
+    } else if (username == 'U00101') {
       this.props.history.push('/dashboard')
     }
   }
