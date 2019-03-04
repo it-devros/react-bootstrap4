@@ -63,7 +63,7 @@ class Target extends React.Component {
           <span>{sensor.humidity.data}</span>
         </td>
         <td>
-          <span>{sensor.humidity.data}</span>
+          <span>{sensor.humidity.updated_at}</span>
         </td>
       </tr>
     )
