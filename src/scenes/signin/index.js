@@ -40,7 +40,12 @@ class SignIn extends React.Component {
   }
 
   handleSubmit() {
-    this.props.history.push('/admin')
+    const { username, password } = this.state
+    if (username == 'admin' && password == 'admin') {
+      this.props.history.push('/admin')
+    } else if (username == 'user' && password == 'user') {
+      this.props.history.push('/dashboard')
+    }
   }
 
   render() {

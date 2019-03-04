@@ -45,7 +45,7 @@ class Admin extends React.Component {
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="card text-center">
-              <div className="card-body p-1">
+              <div className="card-body p-0">
                 <div className="table-responsive">
                   <table className="table table-bordered">
                     <tbody>
@@ -68,7 +68,7 @@ class Admin extends React.Component {
         <div className="row">
           <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
             <div className="card">
-              <div className="card-body p-1">
+              <div className="card-body p-0">
                 <div className="table-responsive">
                   <table className="table table-hover table-bordered first">
                     <tbody>
