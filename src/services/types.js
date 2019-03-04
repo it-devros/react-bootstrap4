@@ -9,3 +9,8 @@ export const USER = {
   SIGNED_IN: 'SIGNED_IN',
   SIGNED_OUT: 'SIGNED_OUT'
 }
+
+export const DATA = {
+  SET_TARGETS: 'SET_TARGETS',
+  SET_SENSORS: 'SET_SENSORS'
+}

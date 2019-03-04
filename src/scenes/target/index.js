@@ -3,17 +3,22 @@ import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 
+import * as DataActions from '../../services/actions/data'
 
 import './style.scss'
+import sensor from '../sensor';
 
 const mapStateToProps = (state) => {
 	return ({
+    targets: state.data.targets,
+    sensors: state.data.sensors
 	})
 }
 
 
 const mapDispatchToProps = (dispatch) => {
 	return ({
+    dataActions: bindActionCreators(DataActions, dispatch)
 	})
 }
 
@@ -25,9 +30,105 @@ class Target extends React.Component {
     this.state = {
     }
 
+    this.renderSensor = this.renderSensor.bind(this)
+  }
+
+  componentDidMount() {
+    this.props.dataActions.getTargets()
+    this.props.dataActions.getSensors()
+  }
+
+  renderSensor(sensor) {
+    let data = []
+    data.push(
+      <tr key={'temperature'}>
+        <td rowSpan='7'>
+          <Link to="/dashboard/sensor/12"><span>{sensor.name}</span></Link>
+        </td>
+        <td>
+          温度
+        </td>
+        <td>
+          <span>{sensor.temperature.data}</span>
+        </td>
+        <td>
+          <span>{sensor.temperature.updated_at}</span>
+        </td>
+      </tr>
+    )
+    data.push(
+      <tr key={'humitdity'}>
+        <td>湿度</td>
+        <td>
+          <span>{sensor.humidity.data}</span>
+        </td>
+        <td>
+          <span>{sensor.humidity.data}</span>
+        </td>
+      </tr>
+    )
+    data.push(
+      <tr key={'illuminance'}>
+        <td>照度</td>
+        <td>
+          <span>{sensor.illuminance.data}</span>
+        </td>
+        <td>
+          <span>{sensor.illuminance.updated_at}</span>
+        </td>
+      </tr>
+    )
+    data.push(
+      <tr key={'acceleration'}>
+        <td>加速度</td>
+        <td>
+          <span>{sensor.acceleration.data}</span>
+        </td>
+        <td>
+          <span>{sensor.acceleration.updated_at}</span>
+        </td>
+      </tr>
+    )
+    data.push(
+      <tr key={'odor'}>
+        <td>臭い</td>
+        <td>
+          <span>{sensor.odor.data}</span>
+        </td>
+        <td>
+          <span>{sensor.odor.updated_at}</span>
+        </td>
+      </tr>
+    )
+    data.push(
+      <tr key={'noise'}>
+        <td>騒音</td>
+        <td>
+          <span>{sensor.noise.data}</span>
+        </td>
+        <td>
+          <span>{sensor.noise.updated_at}</span>
+        </td>
+      </tr>
+    )
+    data.push(
+      <tr key={'atmospheric'}>
+        <td>気圧</td>
+        <td>
+          <span>{sensor.atmospheric_pressure.data}</span>
+        </td>
+        <td>
+          <span>{sensor.atmospheric_pressure.updated_at}</span>
+        </td>
+      </tr>
+    )
+    console.log(data)
+    return data
   }
 
   render() {
+
+    const { targets, sensors } = this.props
 
     return (
       <div className="target-page">
@@ -35,7 +136,7 @@ class Target extends React.Component {
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="card text-center">
-              <div className="card-body p-1">
+              <div className="card-body p-0">
                 <div className="table-responsive">
                   <table className="table table-bordered">
                     <tbody>
@@ -55,323 +156,110 @@ class Target extends React.Component {
           </div>
         </div>
 
+        {
+          targets.map(target => {
+            return (
+              <div key={target._id} className="row">
+                <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  <div className="card">
+                    <div className="card-body p-0">
+                      <div className="table-responsive">
+                        <table className="table table-hover table-bordered first">
+                          <thead>
+                            <tr>
+                              <th colSpan='2'>センサー</th>
+                              <th>データ</th>
+                              <th>更新日時</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {
+                              sensors.map(sensor => {
+                                return this.renderSensor(sensor)
+                              })
+                            }
+                            <tr>
+                              <td colSpan='2'>体重計</td>
+                              <td>
+                                <span>{target.weight_scale.data}</span>
+                              </td>
+                              <td>
+                                <span>{target.weight_scale.updated_at}</span>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td rowSpan='2'>
+                                <span>血圧</span>
+                              </td>
+                              <td>最高血圧</td>
+                              <td>
+                                <span>{target.blood_pressure[0].data}</span>
+                              </td>
+                              <td>
+                                <span>{target.blood_pressure[0].updated_at}</span>
+                              </td>
+                            </tr>
 
-        <div className="row">
-          <div className="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-            <div className="card">
-              <div className="card-body p-1">
-                <div className="table-responsive">
-                  <table className="table table-hover table-bordered first">
-                    <thead>
-                      <tr>
-                        <th colSpan='2'>センサー</th>
-                        <th>データ</th>
-                        <th>更新日時</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+                            <tr>
+                              <td>最低血圧</td>
+                              <td>
+                                <span>{target.blood_pressure[1].data}</span>
+                              </td>
+                              <td>
+                                <span>{target.blood_pressure[1].updated_at}</span>
+                              </td>
+                            </tr>
 
-                      <tr>
-                        <td rowSpan='7'>
-                          <Link to="/dashboard/sensor/12"><span>環境センサー１</span></Link>
-                        </td>
-                        <td>
-                          温度
-                        </td>
-                        <td>
-                          <span>28.0</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
+                            <tr>
+                              <td colSpan='2'>体温計</td>
+                              <td>
+                                <span>{target.thermometer ? target.thermometer.data : null}</span>
+                              </td>
+                              <td>
+                                <span>{target.thermometer ? target.thermometer.updated_at : null}</span>
+                              </td>
+                            </tr>
 
-                      <tr>
-                        <td>湿度</td>
-                        <td>
-                          <span>61.2</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
+                            <tr>
+                              <td colSpan='2'>活動量</td>
+                              <td>
+                                <span>{target.activity_amount ? target.activity_amount.data : null}</span>
+                              </td>
+                              <td>
+                                <span>{target.activity_amount ? target.activity_amount.updated_at : null}</span>
+                              </td>
+                            </tr>
 
-                      <tr>
-                        <td>照度</td>
-                        <td>
-                          <span>10203</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-                      
-                      <tr>
-                        <td>加速度</td>
-                        <td>
-                          <span>-1050.3</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
+                            <tr>
+                              <td colSpan='2'>睡眠</td>
+                              <td>
+                                <span>{target.sleep.data}</span>
+                              </td>
+                              <td>
+                                <span>{target.sleep.updated_at}</span>
+                              </td>
+                            </tr>
 
-                      <tr>
-                        <td>臭い</td>
-                        <td>
-                          <span>10767</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
+                            <tr>
+                              <td colSpan='2'>運動</td>
+                              <td>
+                                <span>{target.motion.data}</span>
+                              </td>
+                              <td>
+                                <span>{target.motion.updated_at}</span>
+                              </td>
+                            </tr>
 
-                      <tr>
-                        <td>騒音</td>
-                        <td>
-                          <span>42.1</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>気圧</td>
-                        <td>
-                          <span>1013.6</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td rowSpan='7'>
-                          <span>環境センサー２</span>
-                        </td>
-                        <td>温度</td>
-                        <td>
-                          <span>19.6</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>湿度</td>
-                        <td>
-                          <span>61.2</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>照度</td>
-                        <td>
-                          <span>10203</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>加速度</td>
-                        <td>
-                          <span>-1050.3</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>臭い</td>
-                        <td>
-                          <span>10767</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>騒音</td>
-                        <td>
-                          <span>42.1</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>気圧</td>
-                        <td>
-                          <span>1013.6</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td rowSpan='7'>
-                          <span>環境センサー３</span>
-                        </td>
-                        <td>温度</td>
-                        <td>
-                          <span>20.1</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>湿度</td>
-                        <td>
-                          <span>61.2</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>照度</td>
-                        <td>
-                          <span>10203</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>加速度</td>
-                        <td>
-                          <span>-1050.3</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>臭い</td>
-                        <td>
-                          <span>10767</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>騒音</td>
-                        <td>
-                          <span>42.1</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>気圧</td>
-                        <td>
-                          <span>1013.6</span>
-                        </td>
-                        <td>
-                          <span>2019/03/05　11:12:03</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td colSpan='2'>体重計</td>
-                        <td>
-                          <span>40.5</span>
-                        </td>
-                        <td>
-                          <span>2019/02/05　06:35:17</span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td rowSpan='2'>
-                          <span>血圧</span>
-                        </td>
-                        <td>最高血圧</td>
-                        <td>
-                          <span></span>
-                        </td>
-                        <td>
-                          <span></span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td>最低血圧</td>
-                        <td>
-                          <span></span>
-                        </td>
-                        <td>
-                          <span></span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td colSpan='2'>体温計</td>
-                        <td>
-                          <span></span>
-                        </td>
-                        <td>
-                          <span></span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td colSpan='2'>活動量</td>
-                        <td>
-                          <span></span>
-                        </td>
-                        <td>
-                          <span></span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td colSpan='2'>睡眠</td>
-                        <td>
-                          <span>離床</span>
-                        </td>
-                        <td>
-                          <span></span>
-                        </td>
-	                    </tr>
-
-                      <tr>
-                        <td colSpan='2'>運動</td>
-                        <td>
-                          <span>未装着</span>
-                        </td>
-                        <td>
-                          <span></span>
-                        </td>
-	                    </tr>
-
-                    </tbody>
-                  </table>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            )
+          })
+        }
 
       </div>
     )

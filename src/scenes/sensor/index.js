@@ -35,7 +35,7 @@ class Sensor extends React.Component {
         <div className="row">
           <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
             <div className="card text-center">
-              <div className="card-body p-1">
+              <div className="card-body p-0">
                 <div className="table-responsive">
                   <table className="table table-bordered">
                     <tbody>
