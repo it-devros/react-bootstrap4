@@ -122,7 +122,6 @@ class Target extends React.Component {
         </td>
       </tr>
     )
-    console.log(data)
     return data
   }
 
