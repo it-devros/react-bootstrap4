@@ -7,14 +7,14 @@ import { bindActionCreators } from 'redux'
 import './style.scss'
 
 const mapStateToProps = (state) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
@@ -43,43 +43,33 @@ class IDlist extends React.Component {
         </div>
 
         <div className="row">
-          <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+          <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
             <div className="card">
               <div className="card-body p-0">
                 <div className="table-responsive">
                   <table className="table table-hover table-bordered first">
                     <thead>
                       <tr>
-                        <th>#</th>
-                        <th>ユーザーID</th>
-                        <th>ユーザー氏名</th>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>氏名</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
+                        <td>A00001</td>
+                        <td>佐藤　一郎</td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
+                        <td>2</td>
+                        <td>U00101</td>
+                        <td>山田　太郎</td>
                       </tr>
                       <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>11</td>
-                        <td>user</td>
+                        <td>3</td>
+                        <td>T00200</td>
+                        <td>鈴木　花子</td>
                       </tr>
                     </tbody>
                   </table>

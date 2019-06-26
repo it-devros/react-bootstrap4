@@ -7,14 +7,14 @@ import { bindActionCreators } from 'redux'
 import './style.scss'
 
 const mapStateToProps = (state) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
@@ -51,11 +51,11 @@ class Admin extends React.Component {
                     <tbody>
                       <tr>
                         <th>ユーザーID</th>
-                        <td>10</td>
+                        <td>A00001</td>
                       </tr>
                       <tr>
                         <th>ユーザー氏名</th>
-                        <td>admin</td>
+                        <td>佐藤　一郎</td>
                       </tr>
                     </tbody>
                   </table>
@@ -92,11 +92,11 @@ class Admin extends React.Component {
                           <Link to="/admin/targetlist">対象者一覧</Link>
                         </th>
                       </tr>
-                      <tr>
+                      {/* <tr>
                         <th>
                           <Link to="/admin/targetdata">対象者データ一覧</Link>
                         </th>
-                      </tr>
+                      </tr> */}
                     </tbody>
                   </table>
                 </div>

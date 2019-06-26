@@ -9,17 +9,17 @@ import './style.scss'
 import sensor from '../sensor';
 
 const mapStateToProps = (state) => {
-	return ({
+  return ({
     targets: state.data.targets,
     sensors: state.data.sensors
-	})
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
+  return ({
     dataActions: bindActionCreators(DataActions, dispatch)
-	})
+  })
 }
 
 
@@ -43,7 +43,7 @@ class Target extends React.Component {
     data.push(
       <tr key={'temperature'}>
         <td rowSpan='7'>
-          <Link to="/dashboard/sensor/12"><span>{sensor.name}</span></Link>
+          <span>{sensor.name}</span>
         </td>
         <td>
           温度
@@ -63,7 +63,7 @@ class Target extends React.Component {
           <span>{sensor.humidity.data}</span>
         </td>
         <td>
-          <span>{sensor.humidity.data}</span>
+          <span>{sensor.humidity.updated_at}</span>
         </td>
       </tr>
     )
@@ -122,7 +122,6 @@ class Target extends React.Component {
         </td>
       </tr>
     )
-    console.log(data)
     return data
   }
 

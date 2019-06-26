@@ -3,14 +3,14 @@ import {connect} from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 const mapStateToProps = (state) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 

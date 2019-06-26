@@ -5,9 +5,9 @@ import CommonReducer from './common'
 import DataReducer from './data'
 
 const rootReducer = combineReducers({
-	auth: AuthReducer,
-	common: CommonReducer,
-	data: DataReducer
+  auth: AuthReducer,
+  common: CommonReducer,
+  data: DataReducer
 })
 
 export default rootReducer
