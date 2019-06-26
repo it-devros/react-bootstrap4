@@ -12,14 +12,14 @@ import adminRoutes from '../../routes/admin'
 import './style.scss'
 
 const mapStateToProps = (state) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 

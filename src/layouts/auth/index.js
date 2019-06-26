@@ -8,14 +8,14 @@ import authRoutes from '../../routes/auth'
 import './style.scss'
 
 const mapStateToProps = (state) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 

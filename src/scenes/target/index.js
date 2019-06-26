@@ -9,17 +9,17 @@ import './style.scss'
 import sensor from '../sensor';
 
 const mapStateToProps = (state) => {
-	return ({
+  return ({
     targets: state.data.targets,
     sensors: state.data.sensors
-	})
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
+  return ({
     dataActions: bindActionCreators(DataActions, dispatch)
-	})
+  })
 }
 
 

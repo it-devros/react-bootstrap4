@@ -8,14 +8,14 @@ import { bindActionCreators } from 'redux'
 import './style.scss'
 
 const mapStateToProps = (state) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
 const mapDispatchToProps = (dispatch) => {
-	return ({
-	})
+  return ({
+  })
 }
 
 
